@@ -1,6 +1,5 @@
 ﻿namespace NestedGrid.Default {
     export interface ChildBForm {
-        ChildAId: Serenity.IntegerEditor;
         Name: Serenity.StringEditor;
     }
 
@@ -15,12 +14,10 @@
                 ChildBForm.init = true;
 
                 var s = Serenity;
-                var w0 = s.IntegerEditor;
-                var w1 = s.StringEditor;
+                var w0 = s.StringEditor;
 
                 Q.initFormType(ChildBForm, [
-                    'ChildAId', w0,
-                    'Name', w1
+                    'Name', w0
                 ]);
             }
         }

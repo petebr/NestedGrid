@@ -4,6 +4,7 @@
         MainId?: number;
         Name?: string;
         MainName?: string;
+        ChildrenB?: ChildBRow[];
     }
 
     export namespace ChildARow {
@@ -19,7 +20,8 @@
             Id = "Id",
             MainId = "MainId",
             Name = "Name",
-            MainName = "MainName"
+            MainName = "MainName",
+            ChildrenB = "ChildrenB"
         }
     }
 }

@@ -28,8 +28,8 @@ namespace NestedGrid.Default
 
 
         [DisplayName("ChildrenA")]
-        [MasterDetailRelation(foreignKey: nameof(ChildARow.MainId) )]
-            //,            IncludeColumnNames = new[] { nameof(BeatRow.Scenes) })]
+        [MasterDetailRelation(foreignKey: nameof(ChildARow.MainId) 
+            ,IncludeColumnNames = new[] { nameof(ChildARow.ChildrenB) })]
         public List<ChildARow> ChildrenA
         {
             get => Fields.ChildrenA[this];

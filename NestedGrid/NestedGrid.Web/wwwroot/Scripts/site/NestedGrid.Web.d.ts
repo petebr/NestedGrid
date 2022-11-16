@@ -412,6 +412,7 @@ declare namespace NestedGrid.Default {
 declare namespace NestedGrid.Default {
     interface ChildAForm {
         Name: Serenity.StringEditor;
+        ChildrenB: ChildBEditor;
     }
     class ChildAForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -425,6 +426,7 @@ declare namespace NestedGrid.Default {
         MainId?: number;
         Name?: string;
         MainName?: string;
+        ChildrenB?: ChildBRow[];
     }
     namespace ChildARow {
         const idProperty = "Id";
@@ -438,7 +440,8 @@ declare namespace NestedGrid.Default {
             Id = "Id",
             MainId = "MainId",
             Name = "Name",
-            MainName = "MainName"
+            MainName = "MainName",
+            ChildrenB = "ChildrenB"
         }
     }
 }
@@ -466,7 +469,6 @@ declare namespace NestedGrid.Default {
 }
 declare namespace NestedGrid.Default {
     interface ChildBForm {
-        ChildAId: Serenity.IntegerEditor;
         Name: Serenity.StringEditor;
     }
     class ChildBForm extends Serenity.PrefixedContext {
@@ -918,6 +920,23 @@ declare namespace NestedGrid.Default {
         protected getDeletePermission(): string;
         protected getInsertPermission(): string;
         protected getUpdatePermission(): string;
+        protected form: ChildBForm;
+    }
+}
+declare namespace NestedGrid.Default {
+    class ChildBEditor extends Serenity.Extensions.GridEditorBase<ChildBRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ChildBEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace NestedGrid.Default {
+    class ChildBEditorDialog extends Serenity.Extensions.GridEditorDialog<ChildBRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
         protected form: ChildBForm;
     }
 }

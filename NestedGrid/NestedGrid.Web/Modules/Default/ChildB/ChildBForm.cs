@@ -7,7 +7,7 @@ namespace NestedGrid.Default.Forms
     [BasedOnRow(typeof(ChildBRow), CheckNames = true)]
     public class ChildBForm
     {
-        public int ChildAId { get; set; }
+      
         public string Name { get; set; }
     }
 }

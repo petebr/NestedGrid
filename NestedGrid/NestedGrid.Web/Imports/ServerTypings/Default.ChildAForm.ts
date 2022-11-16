@@ -1,6 +1,7 @@
 ﻿namespace NestedGrid.Default {
     export interface ChildAForm {
         Name: Serenity.StringEditor;
+        ChildrenB: ChildBEditor;
     }
 
     export class ChildAForm extends Serenity.PrefixedContext {
@@ -15,9 +16,11 @@
 
                 var s = Serenity;
                 var w0 = s.StringEditor;
+                var w1 = ChildBEditor;
 
                 Q.initFormType(ChildAForm, [
-                    'Name', w0
+                    'Name', w0,
+                    'ChildrenB', w1
                 ]);
             }
         }
