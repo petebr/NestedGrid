@@ -2,6 +2,7 @@
     export interface MainRow {
         Id?: number;
         Name?: string;
+        ChildrenA?: ChildARow[];
     }
 
     export namespace MainRow {
@@ -15,7 +16,8 @@
 
         export declare const enum Fields {
             Id = "Id",
-            Name = "Name"
+            Name = "Name",
+            ChildrenA = "ChildrenA"
         }
     }
 }

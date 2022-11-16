@@ -1,6 +1,7 @@
 ﻿using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace NestedGrid.Default
@@ -25,6 +26,17 @@ namespace NestedGrid.Default
             set => fields.Name[this] = value;
         }
 
+
+        [DisplayName("ChildrenA")]
+        [MasterDetailRelation(foreignKey: nameof(ChildARow.MainId) )]
+            //,            IncludeColumnNames = new[] { nameof(BeatRow.Scenes) })]
+        public List<ChildARow> ChildrenA
+        {
+            get => Fields.ChildrenA[this];
+            set => Fields.ChildrenA[this] = value;
+
+        }
+
         public MainRow()
             : base()
         {
@@ -39,6 +51,7 @@ namespace NestedGrid.Default
         {
             public Int32Field Id;
             public StringField Name;
+            public ListField<ChildARow> ChildrenA;
         }
     }
 }

@@ -5,6 +5,7 @@
 /// <reference types="jqueryui" />
 /// <reference types="serenity.pro.ui" />
 /// <reference types="serenity.pro.extensions" />
+/// <reference types="serenity.extensions" />
 declare namespace NestedGrid.Administration {
     class LanguageColumns {
         static columnsKey: string;
@@ -410,7 +411,6 @@ declare namespace NestedGrid.Default {
 }
 declare namespace NestedGrid.Default {
     interface ChildAForm {
-        MainId: Serenity.IntegerEditor;
         Name: Serenity.StringEditor;
     }
     class ChildAForm extends Serenity.PrefixedContext {
@@ -525,6 +525,7 @@ declare namespace NestedGrid.Default {
 declare namespace NestedGrid.Default {
     interface MainForm {
         Name: Serenity.StringEditor;
+        ChildrenA: ChildAEditor;
     }
     class MainForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -536,6 +537,7 @@ declare namespace NestedGrid.Default {
     interface MainRow {
         Id?: number;
         Name?: string;
+        ChildrenA?: ChildARow[];
     }
     namespace MainRow {
         const idProperty = "Id";
@@ -547,7 +549,8 @@ declare namespace NestedGrid.Default {
         const updatePermission = "Administration:General";
         const enum Fields {
             Id = "Id",
-            Name = "Name"
+            Name = "Name",
+            ChildrenA = "ChildrenA"
         }
     }
 }
@@ -874,6 +877,23 @@ declare namespace NestedGrid.Default {
         protected getDeletePermission(): string;
         protected getInsertPermission(): string;
         protected getUpdatePermission(): string;
+        protected form: ChildAForm;
+    }
+}
+declare namespace NestedGrid.Default {
+    class ChildAEditor extends Serenity.Extensions.GridEditorBase<ChildARow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ChildAEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace NestedGrid.Default {
+    class ChildAEditorDialog extends Serenity.Extensions.GridEditorDialog<ChildARow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
         protected form: ChildAForm;
     }
 }
