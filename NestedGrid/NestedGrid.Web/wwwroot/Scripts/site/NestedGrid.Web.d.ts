@@ -403,6 +403,171 @@ declare namespace NestedGrid.Administration {
         }
     }
 }
+declare namespace NestedGrid.Default {
+    class ChildAColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace NestedGrid.Default {
+    interface ChildAForm {
+        MainId: Serenity.IntegerEditor;
+        Name: Serenity.StringEditor;
+    }
+    class ChildAForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace NestedGrid.Default {
+    interface ChildARow {
+        Id?: number;
+        MainId?: number;
+        Name?: string;
+        MainName?: string;
+    }
+    namespace ChildARow {
+        const idProperty = "Id";
+        const nameProperty = "Name";
+        const localTextPrefix = "Default.ChildA";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            MainId = "MainId",
+            Name = "Name",
+            MainName = "MainName"
+        }
+    }
+}
+declare namespace NestedGrid.Default {
+    namespace ChildAService {
+        const baseUrl = "Default/ChildA";
+        function Create(request: Serenity.SaveRequest<ChildARow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ChildARow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ChildARow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ChildARow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/ChildA/Create",
+            Update = "Default/ChildA/Update",
+            Delete = "Default/ChildA/Delete",
+            Retrieve = "Default/ChildA/Retrieve",
+            List = "Default/ChildA/List"
+        }
+    }
+}
+declare namespace NestedGrid.Default {
+    class ChildBColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace NestedGrid.Default {
+    interface ChildBForm {
+        ChildAId: Serenity.IntegerEditor;
+        Name: Serenity.StringEditor;
+    }
+    class ChildBForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace NestedGrid.Default {
+    interface ChildBRow {
+        Id?: number;
+        ChildAId?: number;
+        Name?: string;
+        ChildAMainId?: number;
+        ChildAName?: string;
+    }
+    namespace ChildBRow {
+        const idProperty = "Id";
+        const nameProperty = "Name";
+        const localTextPrefix = "Default.ChildB";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            ChildAId = "ChildAId",
+            Name = "Name",
+            ChildAMainId = "ChildAMainId",
+            ChildAName = "ChildAName"
+        }
+    }
+}
+declare namespace NestedGrid.Default {
+    namespace ChildBService {
+        const baseUrl = "Default/ChildB";
+        function Create(request: Serenity.SaveRequest<ChildBRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ChildBRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ChildBRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ChildBRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/ChildB/Create",
+            Update = "Default/ChildB/Update",
+            Delete = "Default/ChildB/Delete",
+            Retrieve = "Default/ChildB/Retrieve",
+            List = "Default/ChildB/List"
+        }
+    }
+}
+declare namespace NestedGrid.Default {
+    class MainColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace NestedGrid.Default {
+    interface MainForm {
+        Name: Serenity.StringEditor;
+    }
+    class MainForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace NestedGrid.Default {
+    interface MainRow {
+        Id?: number;
+        Name?: string;
+    }
+    namespace MainRow {
+        const idProperty = "Id";
+        const nameProperty = "Name";
+        const localTextPrefix = "Default.Main";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            Name = "Name"
+        }
+    }
+}
+declare namespace NestedGrid.Default {
+    namespace MainService {
+        const baseUrl = "Default/Main";
+        function Create(request: Serenity.SaveRequest<MainRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MainRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MainRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MainRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/Main/Create",
+            Update = "Default/Main/Update",
+            Delete = "Default/Main/Delete",
+            Retrieve = "Default/Main/Retrieve",
+            List = "Default/Main/List"
+        }
+    }
+}
 declare namespace NestedGrid.Membership {
     interface ChangePasswordForm {
         OldPassword: Serenity.PasswordEditor;
@@ -697,6 +862,78 @@ declare namespace NestedGrid.Common {
         private menuUL;
         constructor(input: JQuery, menuUL: JQuery);
         protected updateMatchFlags(text: string): void;
+    }
+}
+declare namespace NestedGrid.Default {
+    class ChildADialog extends Serenity.EntityDialog<ChildARow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: ChildAForm;
+    }
+}
+declare namespace NestedGrid.Default {
+    class ChildAGrid extends Serenity.EntityGrid<ChildARow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ChildADialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace NestedGrid.Default {
+    class ChildBDialog extends Serenity.EntityDialog<ChildBRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: ChildBForm;
+    }
+}
+declare namespace NestedGrid.Default {
+    class ChildBGrid extends Serenity.EntityGrid<ChildBRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ChildBDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace NestedGrid.Default {
+    class MainDialog extends Serenity.EntityDialog<MainRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: MainForm;
+    }
+}
+declare namespace NestedGrid.Default {
+    class MainGrid extends Serenity.EntityGrid<MainRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MainDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }
 declare namespace NestedGrid.Membership {

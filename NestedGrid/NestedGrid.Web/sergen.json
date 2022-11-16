@@ -1,4 +1,4 @@
-﻿{
+{
   "RootNamespace": "NestedGrid",
   "ServerTypings": {
     "LocalTexts": true
@@ -8,6 +8,31 @@
       "/wwwroot/Scripts/serenity/Serenity.CoreLib*.*"
     ]
   },
+  "Connections": [
+    {
+      "Key": "Default",
+      "Tables": [
+        {
+          "Tablename": "dbo.ChildA",
+          "Identifier": "ChildA",
+          "Module": "Default",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.ChildB",
+          "Identifier": "ChildB",
+          "Module": "Default",
+          "PermissionKey": "Administration:General"
+        },
+        {
+          "Tablename": "dbo.Main",
+          "Identifier": "Main",
+          "Module": "Default",
+          "PermissionKey": "Administration:General"
+        }
+      ]
+    }
+  ],
   "UpgradeInfo": {
     "InitialType": "Community",
     "InitialVersion": "6.0.3.0"
